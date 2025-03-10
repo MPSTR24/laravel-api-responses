@@ -4,6 +4,7 @@ namespace Mpstr24\APIResponses\Traits;
 
 use Illuminate\Http\JsonResponse;
 
+// @phpstan-ignore trait.unused
 trait ApiResponseTrait
 {
 
