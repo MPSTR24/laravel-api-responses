@@ -82,4 +82,12 @@ trait ApiResponseTrait
     {
         return $this->response($message, $data, 500);
     }
+
+    //--------------------------------------------------HTTP 500 Codes--------------------------------------------------
+
+    private function apiCustom($message = null, $data = null, $statusCode = 200): JsonResponse
+    {
+        return $this->response($message, $data, $statusCode);
+    }
+
 }
