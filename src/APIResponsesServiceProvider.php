@@ -19,6 +19,6 @@ class APIResponsesServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-       //
+        //
     }
 }

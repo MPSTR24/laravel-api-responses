@@ -9,7 +9,6 @@ use Illuminate\Http\JsonResponse;
 // @phpstan-ignore trait.unused
 trait ApiResponseTrait
 {
-
     private function response(?string $message = null, $data = null, int $statusCode = 200): JsonResponse
     {
         return response()->json([
@@ -18,7 +17,7 @@ trait ApiResponseTrait
         ], $statusCode);
     }
 
-    //--------------------------------------------------HTTP 200 Codes--------------------------------------------------
+    // --------------------------------------------------HTTP 200 Codes--------------------------------------------------
 
     private function apiSuccess($message = 'Success', $data = null): JsonResponse
     {
@@ -40,8 +39,7 @@ trait ApiResponseTrait
         return $this->response(null, null, 204);
     }
 
-
-    //--------------------------------------------------HTTP 400 Codes--------------------------------------------------
+    // --------------------------------------------------HTTP 400 Codes--------------------------------------------------
 
     private function apiBadRequest($message = 'Bad Request', $data = null): JsonResponse
     {
@@ -78,18 +76,17 @@ trait ApiResponseTrait
         return $this->response($message, $data, 429);
     }
 
-    //--------------------------------------------------HTTP 500 Codes--------------------------------------------------
+    // --------------------------------------------------HTTP 500 Codes--------------------------------------------------
 
     private function apiInternalServerError($message = 'Server Error', $data = null): JsonResponse
     {
         return $this->response($message, $data, 500);
     }
 
-    //--------------------------------------------------HTTP 500 Codes--------------------------------------------------
+    // --------------------------------------------------HTTP 500 Codes--------------------------------------------------
 
     private function apiCustom($message = null, $data = null, $statusCode = 200): JsonResponse
     {
         return $this->response($message, $data, $statusCode);
     }
-
 }

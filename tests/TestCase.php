@@ -2,6 +2,7 @@
 
 namespace Mpstr24\APIResponses\Tests;
 
+use Illuminate\Support\Facades\Route;
 use Mpstr24\APIResponses\APIResponsesServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -30,6 +31,8 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-        $this->loadMigrationsFrom(__DIR__.'/fake/database/migrations');
+        Route::middleware('api')
+            ->namespace('App\Http\Controllers')
+            ->group(__DIR__.'/fake/routes/api.php');
     }
 }
