@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 trait ApiResponseTrait
 {
 
-    private function response(string $message, $data = null, int $statusCode = 200): JsonResponse
+    private function response(?string $message = null, $data = null, int $statusCode = 200): JsonResponse
     {
         return response()->json([
             'message' => $message,
@@ -17,17 +17,17 @@ trait ApiResponseTrait
 
     //--------------------------------------------------HTTP 200 Codes--------------------------------------------------
 
-    private function apiSuccess($message, $data): JsonResponse
+    private function apiSuccess($message = 'Success', $data = null): JsonResponse
     {
         return $this->response($message, $data, 200);
     }
 
-    private function apiCreated($message, $data): JsonResponse
+    private function apiCreated($message = 'Created', $data = null): JsonResponse
     {
         return $this->response($message, $data, 201);
     }
 
-    private function apiAccepted($message, $data): JsonResponse
+    private function apiAccepted($message = 'Accepted', $data = null): JsonResponse
     {
         return $this->response($message, $data, 202);
     }
@@ -40,45 +40,45 @@ trait ApiResponseTrait
 
     //--------------------------------------------------HTTP 400 Codes--------------------------------------------------
 
-    private function apiBadRequest($message, $data): JsonResponse
+    private function apiBadRequest($message = 'Bad Request', $data = null): JsonResponse
     {
         return $this->response($message, $data, 400);
     }
 
-    private function apiUnauthorized($message, $data): JsonResponse
+    private function apiUnauthorized($message = 'Unauthorized', $data = null): JsonResponse
     {
         return $this->response($message, $data, 401);
     }
 
-    private function apiForbidden($message, $data): JsonResponse
+    private function apiForbidden($message = 'Forbidden', $data = null): JsonResponse
     {
         return $this->response($message, $data, 403);
     }
 
-    private function apiNotFound(): JsonResponse
+    private function apiNotFound($message = 'Not Found', $data = null): JsonResponse
     {
-        return $this->response(null, null, 404);
+        return $this->response($message, $data, 404);
     }
 
-    private function apiTeapot(): JsonResponse
+    private function apiTeapot($message = "I'm a teapot", $data = null): JsonResponse
     {
-        return $this->response(null, null, 418);
+        return $this->response($message, $data, 418);
     }
 
-    private function apiUnprocessable(): JsonResponse
+    private function apiUnprocessable($message = 'Unprocessable Content', $data = null): JsonResponse
     {
-        return $this->response(null, null, 422);
+        return $this->response($message, $data, 422);
     }
 
-    private function apiTooManyRequests(): JsonResponse
+    private function apiTooManyRequests($message = 'Too many requests', $data = null): JsonResponse
     {
-        return $this->response(null, null, 429);
+        return $this->response($message, $data, 429);
     }
 
     //--------------------------------------------------HTTP 500 Codes--------------------------------------------------
 
-    private function apiInternalServerError(): JsonResponse
+    private function apiInternalServerError($message = 'Server Error', $data = null): JsonResponse
     {
-        return $this->response(null, null, 500);
+        return $this->response($message, $data, 500);
     }
 }
