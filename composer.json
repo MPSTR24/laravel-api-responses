@@ -1,12 +1,15 @@
 {
     "name": "mpstr24/laravel-api-responses",
-    "description": "",
+    "description": "Laravel package for formatted API responses.",
     "type": "package",
     "license": "MIT",
     "homepage": "https://github.com/MPSTR24/laravel-api-responses",
     "keywords": [
         "laravel",
-        "package"
+        "package",
+        "API",
+        "HTTP",
+        "Responses"
     ],
     "scripts": {
         "format": "vendor/bin/pint",
