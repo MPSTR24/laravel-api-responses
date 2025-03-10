@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mpstr24\APIResponses\Traits;
 
 use Illuminate\Http\JsonResponse;
