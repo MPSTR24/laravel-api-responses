@@ -10,18 +10,18 @@ use Illuminate\Http\Response;
 // @phpstan-ignore trait.unused
 trait ApiResponseTrait
 {
-    private function response(?string $message = null, mixed $data = null, int $statusCode = 200, array $meta = []): JsonResponse | Response
+    private function response(?string $message = null, mixed $data = null, int $statusCode = 200, array $meta = []): JsonResponse|Response
     {
         if ($statusCode === 204) {
             return response()->noContent();
         }
-        
+
         $payload = [
             'message' => $message,
             'data' => $data,
-            'meta'    => array_merge(['status' => $statusCode], $meta),
+            'meta' => array_merge(['status' => $statusCode], $meta),
         ];
-        
+
         return response()->json($payload, $statusCode);
     }
 
