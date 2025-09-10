@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Mpstr24\APIResponses\Traits;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 // @phpstan-ignore trait.unused
 trait ApiResponseTrait
 {
-    private function response(?string $message = null, mixed $data = null, int $statusCode = 200, array $meta = []): JsonResponse
+    private function response(?string $message = null, mixed $data = null, int $statusCode = 200, array $meta = []): JsonResponse | Response
     {
         if ($statusCode === 204) {
             return response()->noContent();
@@ -41,7 +42,7 @@ trait ApiResponseTrait
         return $this->response($message, $data, 202);
     }
 
-    protected function apiNoContent(): JsonResponse
+    protected function apiNoContent(): Response
     {
         return $this->response(null, null, 204);
     }
